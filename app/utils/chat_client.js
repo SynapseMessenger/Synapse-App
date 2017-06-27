@@ -14,15 +14,15 @@ const io = require('socket.io-client');
 module.exports = class ChatClient {
   constructor(username, serverUrl, port, updateView){
     this.username = username || "anonymous";
-    this.serverUrl = serverUrl || "http://localhost:9090";
+    this.serverUrl = serverUrl || "192.168.0.14:9090";
     this.updateView = updateView;
     this.connected = false;
-    if(!serverUrl && port) this.serverUrl = "http://localhost:" + port;
+    if(!serverUrl && port) this.serverUrl = "192.168.0.14:" + port;
     // this.cipher = new SignalCipher(this.username);
   }
 
   connect(){
-    this.socket = io.connect(this.serverUrl, { query: "username=" + this.username } );
+    this.socket = io(this.serverUrl, { transports: ['websocket'], query: "username=" + this.username } );
     this.listenServerEvents();
   }
 
