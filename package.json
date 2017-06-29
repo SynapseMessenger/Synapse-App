@@ -19,6 +19,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "expo": "^18.0.3",
     "npm": "^4.0.0",
     "react": "16.0.0-alpha.12",

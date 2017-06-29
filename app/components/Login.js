@@ -10,7 +10,7 @@ const Login = ({ username, setUsername }) => (
     <Text>Username:</Text>
     <TextInput
       style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-      onChange={(ev) => setUsername(ev.target.value)}
+      onChangeText={(texto) => setUsername(texto)}
       value={username}
     />
     <Link to="/contacts">
