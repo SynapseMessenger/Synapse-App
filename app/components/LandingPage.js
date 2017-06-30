@@ -1,14 +1,35 @@
 import React from 'react'
-import { View, Text } from 'react-native';
-import { Link } from 'react-router-native';
+import { View, Text, Button, Image } from 'react-native';
+import { Link, Redirect } from 'react-router-native';
+import styles from '../styles/LandingPage';
+import logo from '../assets/images/logo.png';
 
-const LandingPage = () => (
-  <View>
-    <Text>Welcome to Synapse</Text>
-    <Link to="/login">
-      <Text>Login</Text>
-    </Link>
-  </View>
-)
+class LandingPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: false
+    }
+  }
+
+  render() {
+    return (
+      <View style={styles.wrapper}>
+        <Text style={styles.title}>
+          Synapse Messenger
+        </Text>
+
+        <Image source={logo} style={styles.logo} />
+
+        <Button
+          title="Login"
+          onPress={ () => this.setState({ redirect: true })}
+        />
+        { this.state.redirect ? <Redirect to="/login" /> : null }
+      </View>
+    );
+  }
+}
 
 export default LandingPage;
