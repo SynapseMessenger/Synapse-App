@@ -4,8 +4,9 @@ import { bindActionCreators } from 'redux';
 import { addPendingMessages } from '../actions/conversationsActions';
 import { updateUserLists } from '../actions/chatActions';
 import { setUser } from '../actions/userActions';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { Link } from 'react-router-native';
+import styles from '../styles/Contacts';
 
 class Contacts extends React.Component {
 
@@ -49,7 +50,7 @@ class Contacts extends React.Component {
 
   showGreetings(){
     return(
-      <Text>
+      <Text style={styles.title}>
         Hello, {this.props.chatClient.username}!
         Connecting to server...
       </Text>
@@ -62,33 +63,33 @@ class Contacts extends React.Component {
     const offlineCount = this.props.offlineUsers.length;
     return(
       <View>
-        <Text className="center-align contacts-title">Contacts</Text>
+        <Text style={styles.title}>Contacts</Text>
 
-        <Text className="left-align">Online: ({onlineCount})</Text>
-        <View className="collection with-header user-list" hidden={onlineCount === 0}>
+        <Text style={styles.subtitle}>Online: {onlineCount}</Text>
+        <ScrollView style={styles.contact_list} hidden={onlineCount === 0}>
           { this.props.onlineUsers.map((user) => {
             return (
-              <Link to={`/chat/${user._id}`} className="collection-item user-item" key={user._id}>
+              <Link to={`/chat/${user._id}`} style={styles.contact_item} key={user._id}>
                   <Text>
                     {user.username}
                   </Text>
               </Link>
             )
           })}
-        </View>
+        </ScrollView>
 
-        <Text className="left-align">Offline: ({offlineCount})</Text>
-        <View className="collection with-header user-list" hidden={offlineCount === 0}>
+        <Text style={styles.subtitle}>Offline: {offlineCount}</Text>
+        <ScrollView style={styles.contact_list} hidden={offlineCount === 0}>
           { this.props.offlineUsers.map((user) => {
             return (
-              <Link to={`/chat/${user._id}`} className="collection-item user-item" key={user._id}>
+              <Link to={`/chat/${user._id}`} style={styles.contact_item} key={user._id}>
                 <Text>
                   {user.username}
                 </Text>
               </Link>
             )
           })}
-        </View>
+        </ScrollView>
       </View>
     )
   }
@@ -97,7 +98,7 @@ class Contacts extends React.Component {
     const connectedAndUsers = this.state.connectedToServer && this.props.onlineUsers;
     const displayInfo = connectedAndUsers ? this.showUsers() : this.showGreetings();
     return (
-      <View className="container">
+      <View style={styles.wrapper}>
         {displayInfo}
       </View>
     );

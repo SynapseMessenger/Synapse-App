@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addMessageToChat } from '../actions/conversationsActions';
 import { View, Text, TextInput, Button } from 'react-native';
+import styles from '../styles/Chat';
 
 class MessageInput extends React.Component {
   constructor(props){
@@ -24,7 +25,6 @@ class MessageInput extends React.Component {
       emitterId,
       receiverId
     };
-    console.log('Sending message: ', message);
     chatClient.sendMessage(message);
     addMessageToChat(message, message.receiverId);
     this.setState({
@@ -34,12 +34,12 @@ class MessageInput extends React.Component {
 
   render() {
     return (
-      <View className="row input-message-wrapper">
+      <View style={styles.inputWrapper}>
         <View className="col s10">
           <TextInput
             multiline={true}
             numberOfLines={5}
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            style={styles.inputText}
             className="materialize-textarea input-message"
             value={this.state.message}
             onChangeText={(text) => { this.setState({message: text}) } }
@@ -47,8 +47,8 @@ class MessageInput extends React.Component {
         </View>
         <View className="col s2">
           <Button
-            title='[Send]'
-            className="btn-floating waves-effect waves-light"
+            title='Send'
+            style={styles.inputButton}
             onPress={this.sendMessage}
           />
         </View>

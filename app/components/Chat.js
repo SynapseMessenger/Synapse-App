@@ -10,7 +10,10 @@ import {
   addMessageToChat, receivedAcceptChat, sendAcceptChat
 } from '../actions/conversationsActions';
 
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
+import { Link } from 'react-router-native';
+
+import styles from '../styles/Chat';
 
 class Chat extends React.Component {
   constructor(props) {
@@ -55,7 +58,12 @@ class Chat extends React.Component {
   render() {
     const { user, receiver } = this.props;
     return (
-      <View className="container">
+      <View style={styles.chatWrapper}>
+        <Link style={styles.navBar} to="/contacts">
+          <Text style={styles.navBarTitle}>
+            {"< Back to contacts"}
+          </Text>
+        </Link>
         <Conversation receiverId={receiver._id} />
         <MessageInput emitterId={user._id} receiverId={receiver._id} />
       </View>
