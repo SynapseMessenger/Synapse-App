@@ -2,28 +2,30 @@ import React from 'react';
 import classNames from 'classnames';
 import formatDate from '../utils/format_date';
 import { View, Text } from 'react-native';
+import styles from '../styles/Chat';
 
  const Message = (props) => {
    const { text, time, isOwn } = props;
-   const wrapperClassnames = classNames('col', 's10', {
-       'own-user-message-wrapper': isOwn,
-       'other-user-message-wrapper': !isOwn
-     });
 
-     const messageClassnames = classNames('conversation-message', {
-       'own-user-message': isOwn,
-       'other-user-message': !isOwn
-     });
+   const {
+     ownWrapper, otherWrapper,
+     ownMessage, otherMessage,
+     messageText, messageTime
+   } = styles;
 
-     const formatedTime = formatDate(new Date(time));
+   const wrapperStyle = isOwn ? ownWrapper : otherWrapper;
+
+   const messageStyle = isOwn ? ownMessage : otherMessage;
+
+   const formatedTime = formatDate(new Date(time));
 
    return (
-     <View className={wrapperClassnames}>
-       <View className={messageClassnames}>
-         <Text className="message-text">
+     <View style={wrapperStyle}>
+       <View style={messageStyle}>
+         <Text style={messageText}>
            {text}
          </Text>
-         <Text className="message-time">
+         <Text style={messageTime}>
            {formatedTime}
          </Text>
        </View>

@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Message from './Message';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import styles from '../styles/Chat';
 
 const Conversation = (props) => {
   const { messages, user } = props;
   return (
     <View style={styles.conversationWrapper}>
-      <View className="col s12">
-        <View className="conversation">
+        <ScrollView>
           {messages && messages.length > 0 && messages.map((message) => {
             return (
               <Message
@@ -20,8 +19,7 @@ const Conversation = (props) => {
               />
             );
           })}
-        </View>
-      </View>
+        </ScrollView>
     </View>
   )
 };
