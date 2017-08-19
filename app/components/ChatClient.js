@@ -9,7 +9,7 @@
 'use babel';
 
 import React     from 'react';
-import { Route } from 'react-router-dom';
+import { Route } from 'react-router-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { View } from 'react-native';

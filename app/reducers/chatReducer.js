@@ -18,6 +18,8 @@ const initialState = {
   conversations: {}
 }
 
+console.log('Server host is', serverHost);
+
 const chatReducer = (state = initialState, action) => {
   const userId = action.user ? action.user._id : null;
   switch (action.type) {
@@ -64,6 +66,7 @@ const chatReducer = (state = initialState, action) => {
       };
 
     case 'CONNECT':
+      console.log('Attempting connection with: ', state.host);
       const socket = io.connect(state.host, { query: "username=" + state.username });
       return {
         ...state,

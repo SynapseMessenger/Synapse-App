@@ -9,7 +9,7 @@
 'use babel';
 
 import React from 'react';
-import { Link } from 'react-router-native';
+import { Link, Redirect } from 'react-router-native';
 import { View, Text, Button, Image } from 'react-native';
 import styles from '../styles/LandingPage';
 import logo from '../assets/images/logo.png';
@@ -30,7 +30,7 @@ class LandingPage extends React.Component {
         <Text style={styles.title}>
           Welcome to Synapse
         </Text>
-        
+
         <Image source={logo} style={styles.logo} />
 
         <Button

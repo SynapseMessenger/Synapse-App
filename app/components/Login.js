@@ -26,6 +26,7 @@ class Login extends React.Component {
   }
 
   render(){
+    const { username, setUsername } = this.props;
     return (
       <View style={styles.wrapper}>
         <Text style={styles.title}>
