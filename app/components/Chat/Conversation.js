@@ -1,15 +1,24 @@
+/* **************************************************************
+ *                  Synapse - Desktop Client
+ * @author Marco Fernandez Pranno <mfernandezpranno@gmail.com>
+ * @licence MIT
+ * @link https://github.com/SynapseNetwork/Synapse-Desktop
+ * @version 1.0
+ * ************************************************************** */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import Message from './Message';
 import { View, Text, ScrollView } from 'react-native';
-import styles from '../styles/Chat';
+import styles from '../../styles/Chat';
 
 const Conversation = (props) => {
   const { messages, user } = props;
-  return (
-    <View style={styles.conversationWrapper}>
+  if (messages && messages.length > 0) {
+    return (
+      <View style={styles.conversationWrapper}>
         <ScrollView>
-          {messages && messages.length > 0 && messages.map((message) => {
+          { messages.map((message) => {
             return (
               <Message
                 text={message.text}
@@ -20,14 +29,15 @@ const Conversation = (props) => {
             );
           })}
         </ScrollView>
-    </View>
-  )
+      </View>
+    )
+  } else return null;
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    user: state.user,
-    messages: state.conversations[ownProps.receiverId]
+    user: state.chat.user,
+    messages: state.chat.conversations[ownProps.receiverId]
   };
 };
 

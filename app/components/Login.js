@@ -1,3 +1,13 @@
+/* **************************************************************
+ *                  Synapse - Desktop Client
+ * @author Marco Fernandez Pranno <mfernandezpranno@gmail.com>
+ * @licence MIT
+ * @link https://github.com/SynapseNetwork/Synapse-Desktop
+ * @version 1.0
+ * ************************************************************** */
+
+'use babel';
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,14 +25,12 @@ class Login extends React.Component {
     }
   }
 
-  render() {
-    const { username, setUsername } = this.props;
+  render(){
     return (
       <View style={styles.wrapper}>
         <Text style={styles.title}>
           Login
         </Text>
-
         <TextInput
           style={styles.input}
           onChangeText={(texto) => setUsername(texto)}
@@ -39,7 +47,6 @@ class Login extends React.Component {
     )
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({

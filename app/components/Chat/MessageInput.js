@@ -1,32 +1,36 @@
+/* **************************************************************
+ *                  Synapse - Desktop Client
+ * @author Marco Fernandez Pranno <mfernandezpranno@gmail.com>
+ * @licence MIT
+ * @link https://github.com/SynapseNetwork/Synapse-Desktop
+ * @version 1.0
+ * ************************************************************** */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addMessageToChat } from '../actions/conversationsActions';
+import { addMessageToSelf, sendMessage } from '../../actions/chatActions';
 import { View, Text, TextInput, Button } from 'react-native';
-import styles from '../styles/Chat';
+import styles from '../../styles/Chat';
 
 class MessageInput extends React.Component {
   constructor(props){
     super(props);
-    this.sendMessage = this.sendMessage.bind(this);
+    this.handleSend = this.handleSend.bind(this);
     this.state = {
       message: ''
     };
   }
 
-  sendMessage() {
-    const {
-      emitterId, receiverId,
-      chatClient, addMessageToChat
-    } = this.props;
+  handleSend() {
     const message = {
       text: this.state.message,
       time: Date.now(),
-      emitterId,
-      receiverId
+      emitterId: this.props.emitterId,
+      receiverId: this.props.receiverId
     };
-    chatClient.sendMessage(message);
-    addMessageToChat(message, message.receiverId);
+    this.props.addMessageToSelf(message, this.props.receiverId);
+    this.props.sendMessage(message);
     this.setState({
       message: ""
     });
@@ -57,16 +61,11 @@ class MessageInput extends React.Component {
   }
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    chatClient: state.chat.client,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    addMessageToChat
+    addMessageToSelf,
+    sendMessage
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MessageInput);
+export default connect(null, mapDispatchToProps)(MessageInput);

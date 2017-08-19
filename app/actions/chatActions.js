@@ -13,6 +13,19 @@ export const setUsername = (username) => {
   }
 };
 
+export const connectChat = () => {
+  return {
+    type: 'CONNECT'
+  }
+}
+
+export const sendMessage = (data) => {
+  return {
+    type: 'SEND_MESSAGE',
+    message: data
+  }
+};
+
 export const updateUserLists = (allUsers) => {
   return {
     type: 'UPDATE_USER_LIST',
@@ -20,14 +33,29 @@ export const updateUserLists = (allUsers) => {
   }
 };
 
-export const sendInitChat = () => {
+export const updateUserStatus = (user, status) => {
   return {
-    type: 'SEND_INIT_CHAT'
+    type: 'UPDATE_USER_STATUS',
+    user,
+    status
   }
 };
 
-export const receivedInitChat = () => {
-  return {
-    type: 'RECEIVED_INIT_CHAT'
-  }
+export const initChat = (user) => ({
+  type: 'INIT_CHAT',
+  user
+});
+
+export const addMessageToChat = (message, userId) => ({
+  type: 'ADD_MSG_TO_CHAT',
+  message,
+  userId
+});
+
+export const addMessageToSelf = (message, userId) => {
+ return {
+   type: 'ADD_MSG_TO_SELF',
+   message,
+   userId
+ }
 };

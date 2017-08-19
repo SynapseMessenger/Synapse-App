@@ -6,9 +6,15 @@
  * @version 1.0
  * ************************************************************** */
 
-export const setUser = (user) => {
-  return {
-    type: 'SET_USER',
-    user
-  }
-};
+'use babel';
+
+import React     from 'react';
+import { View }  from 'react-native';
+
+const SynapseApp = ({children}) => (
+  <View>
+    {children}
+  </View>
+)
+
+export default SynapseApp;

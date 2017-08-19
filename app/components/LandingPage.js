@@ -1,8 +1,19 @@
-import React from 'react'
+/* **************************************************************
+ *                  Synapse - Desktop Client
+ * @author Marco Fernandez Pranno <mfernandezpranno@gmail.com>
+ * @licence MIT
+ * @link https://github.com/SynapseNetwork/Synapse-Desktop
+ * @version 1.0
+ * ************************************************************** */
+
+'use babel';
+
+import React from 'react';
+import { Link } from 'react-router-native';
 import { View, Text, Button, Image } from 'react-native';
-import { Link, Redirect } from 'react-router-native';
 import styles from '../styles/LandingPage';
 import logo from '../assets/images/logo.png';
+
 
 class LandingPage extends React.Component {
 
@@ -13,13 +24,13 @@ class LandingPage extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <View style={styles.wrapper}>
         <Text style={styles.title}>
-          Synapse Messenger
+          Welcome to Synapse
         </Text>
-
+        
         <Image source={logo} style={styles.logo} />
 
         <Button
@@ -30,6 +41,6 @@ class LandingPage extends React.Component {
       </View>
     );
   }
-}
+};
 
 export default LandingPage;
