@@ -33,10 +33,12 @@ class LandingPage extends React.Component {
 
         <Image source={logo} style={styles.logo} />
 
-        <Button
-          title="Login"
-          onPress={ () => this.setState({ redirect: true })}
-        />
+        <View style={styles.buttonWrapper}>
+          <Button
+            title="Login"
+            onPress={ () => this.setState({ redirect: true })}
+          />
+        </View>
         { this.state.redirect ? <Redirect to="/login" /> : null }
       </View>
     );

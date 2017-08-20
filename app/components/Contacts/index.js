@@ -11,19 +11,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserList from './UserList';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import styles from '../../styles/Contacts';
 
 const Contacts = ({ ready, connected }) => (
   <View style={styles.wrapper}>
-    { ready ? <UserList /> : <LoadingScreen {...{connected}} /> }
+    { connected ? <UserList /> : <LoadingScreen /> }
   </View>
 );
 
-const LoadingScreen = ({ connected }) => (
-  <Text style={styles.title}>
-    { connected ? 'Connected' : 'Not connected' }
-  </Text>
+const LoadingScreen = () => (
+  <View>
+    <Text style={styles.title}>
+      Attempting connection...
+    </Text>
+    <ActivityIndicator animating={true} size={'large'} />
+  </View>
 )
 
 
