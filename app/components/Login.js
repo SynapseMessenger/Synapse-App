@@ -12,16 +12,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setUsername } from '../actions/chatActions';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
 import { Redirect } from 'react-router-native';
+import { FormLabel, FormInput, Button } from 'react-native-elements'
 import styles from '../styles/Login';
 
 class Login extends React.Component {
 
   constructor(props) {
     super(props);
+    const { username } = props;
     this.state = {
-      redirect: false
+      redirect: false,
+      error: (!username && !username.length > 0)
+    }
+  }
+
+  handleContinue (ev) {
+    if (!this.props.username) {
+      this.setState({ error: true })
+    } else {
+      this.setState({ redirect: true })
     }
   }
 
@@ -32,16 +43,24 @@ class Login extends React.Component {
         <Text style={styles.title}>
           Login
         </Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(texto) => setUsername(texto)}
-          value={username}
-          placeholder="Username"
-        />
 
+        <View>
+          <FormLabel>USERNAME</FormLabel>
+          <FormInput
+            style={styles.input}
+            onChangeText={ (text) => setUsername(text) }
+            value={username}
+            placeholder="Username"
+            shake={this.state.error ? true : false}
+          />
+        </View>
         <Button
-          title="Continue"
-          onPress={ () => this.setState({ redirect: true })}
+          icon={{name: 'trending-flat'}}
+          onPress={ this.handleContinue.bind(this) }
+          title='CONTINUE'
+          iconRight
+          backgroundColor={'#1e88e5'}
+          borderRadius={5}
         />
         { this.state.redirect ? <Redirect to="/synapse/contacts" /> : null }
       </View>

@@ -10,7 +10,8 @@
 
 import React from 'react';
 import { Link, Redirect } from 'react-router-native';
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
+import { Button, Header } from 'react-native-elements'
 import styles from '../styles/LandingPage';
 import logo from '../assets/images/logo.png';
 
@@ -35,8 +36,12 @@ class LandingPage extends React.Component {
 
         <View style={styles.buttonWrapper}>
           <Button
-            title="Login"
+            icon={{name: 'touch-app'}}
             onPress={ () => this.setState({ redirect: true })}
+            title='LOGIN'
+            large
+            backgroundColor={'#1e88e5'}
+            borderRadius={5}
           />
         </View>
         { this.state.redirect ? <Redirect to="/login" /> : null }
