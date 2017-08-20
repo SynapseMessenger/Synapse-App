@@ -43,7 +43,7 @@ class Login extends React.Component {
           title="Continue"
           onPress={ () => this.setState({ redirect: true })}
         />
-        { this.state.redirect ? <Redirect to="/contacts" /> : null }
+        { this.state.redirect ? <Redirect to="/synapse/contacts" /> : null }
       </View>
     )
   }

@@ -10,7 +10,7 @@ const UserItem = ({ id, username }) => (
     key={id}
     >
     <Text>
-      {user.username}
+      {username}
     </Text>
   </Link>
 )

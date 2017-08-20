@@ -53,7 +53,7 @@ class MessageInput extends React.Component {
           <Button
             title='Send'
             style={styles.inputButton}
-            onPress={this.sendMessage}
+            onPress={this.handleSend}
           />
         </View>
       </View>

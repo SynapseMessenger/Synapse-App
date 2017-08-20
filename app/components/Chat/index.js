@@ -30,7 +30,7 @@ class Chat extends React.Component {
     const { user, receiver } = this.props;
     return (
       <View style={styles.chatWrapper}>
-        <Link style={styles.navBar} to="/contacts">
+        <Link style={styles.navBar} to="/synapse/contacts">
           <Text style={styles.navBarTitle}>
             {"< Back to contacts"}
           </Text>

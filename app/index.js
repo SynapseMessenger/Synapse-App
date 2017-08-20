@@ -6,6 +6,7 @@ import SynapseApp from './components/SynapseApp'
 import Login from './components/Login.js'
 import LandingPage from './components/LandingPage.js';
 import ChatClient from './components/ChatClient.js';
+import Contacts from './components/Contacts';
 
 const App = () => (
   <NativeRouter>
