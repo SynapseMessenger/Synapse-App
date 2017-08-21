@@ -10,12 +10,9 @@
 
 import { combineReducers } from 'redux';
 import chatReducer from './chatReducer';
-import conversationsReducer from './conversationsReducer';
-import navbarReducer from './navbarReducer';
 
 const appReducers =  combineReducers({
   chat: chatReducer,
-  navbar: navbarReducer
 });
 
 export default appReducers;

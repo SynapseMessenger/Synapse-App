@@ -28,9 +28,6 @@ class LandingPage extends React.Component {
   render () {
     return (
       <View style={styles.wrapper}>
-        <Text style={styles.title}>
-          Welcome to Synapse
-        </Text>
 
         <Image source={logo} style={styles.logo} />
 

@@ -40,10 +40,6 @@ class Login extends React.Component {
     const { username, setUsername } = this.props;
     return (
       <View style={styles.wrapper}>
-        <Text style={styles.title}>
-          Login
-        </Text>
-
         <View>
           <FormLabel>USERNAME</FormLabel>
           <FormInput

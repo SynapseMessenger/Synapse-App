@@ -6,18 +6,18 @@ export default styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 30,
-    marginTop: 50,
+    display: 'flex',
+    flexDirection: 'column',
   },
   logo: {
-    height: 200,
-    marginTop: 100,
-    marginBottom: 100,
-    width: 200,
+    flex: 1.3,
+    marginTop: 150,
+    height: 250,
+    width: 250,
   },
   buttonWrapper: {
-    width: 200
+    flex: 1,
+    width: 200,
+    marginTop: 100
   }
 });

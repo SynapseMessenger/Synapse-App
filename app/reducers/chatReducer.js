@@ -15,7 +15,7 @@ const serverHost = process.env.LOCAL_ENV ?
 const initialState = {
   host: serverHost,
   username: 'anonymous',
-  conversations: {}
+  conversations: {},
 }
 
 console.log('Server host is', serverHost);
