@@ -2,17 +2,22 @@ import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
   wrapper: {
+    height: '100%',
     alignItems: 'center',
-    marginTop: 50
+    justifyContent: 'space-between',
   },
-  title: {
-    fontSize: 30,
-    marginBottom: 150,
+  inputWrapper: {
+    marginTop: 100,
+  },
+  buttonWrapper: {
+    marginBottom: 10,
+    width: '100%'
   },
   input: {
     width: 200,
     height: 40,
     padding: 10,
-    marginBottom: 20
+    marginBottom: 20,
+    fontSize: 20,
   }
 });

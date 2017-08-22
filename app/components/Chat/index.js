@@ -30,13 +30,17 @@ class Chat extends React.Component {
     const { user, receiver } = this.props;
     return (
       <View style={styles.chatWrapper}>
-        <Link style={styles.navBar} to="/synapse/contacts">
-          <Text style={styles.navBarTitle}>
-            {"< Back to contacts"}
-          </Text>
-        </Link>
-        <Conversation receiverId={receiver._id} />
-        <MessageInput emitterId={user._id} receiverId={receiver._id} />
+        <View>
+          <Conversation
+            receiverId={receiver._id}
+          />
+        </View>
+        <View>
+          <MessageInput
+            emitterId={user._id}
+            receiverId={receiver._id}
+          />
+        </View>
       </View>
     )
   }

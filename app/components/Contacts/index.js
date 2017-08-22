@@ -11,7 +11,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserList from './UserList';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
+import { Text } from 'react-native-elements';
 import styles from '../../styles/Contacts';
 
 const Contacts = ({ ready, connected }) => (
@@ -20,14 +21,17 @@ const Contacts = ({ ready, connected }) => (
   </View>
 );
 
-const LoadingScreen = () => (
-  <View>
-    <Text style={styles.title}>
-      Attempting connection...
+const LoadingScreen = () =>
+  <View style={styles.loader}>
+    <ActivityIndicator
+      animating={true}
+      size={100}
+      color={'rgba(211,211,211, .5)'}
+    />
+    <Text style={styles.loadingText}>
+      Loading
     </Text>
-    <ActivityIndicator animating={true} size={'large'} />
   </View>
-)
 
 
 const mapStateToProps = (state) => {

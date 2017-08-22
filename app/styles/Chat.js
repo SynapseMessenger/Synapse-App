@@ -1,39 +1,31 @@
 import { StyleSheet } from 'react-native';
+import colors from '../utils/colors';
 
 export default styles = StyleSheet.create({
-  navBar: {
-    minHeight: 30,
-    backgroundColor: 'rgba(211,211,211, .5)',
-    justifyContent: 'center',
-    padding: 5,
-    paddingLeft: 25,
-    backgroundColor: 'rgba(128, 203, 196, 1)',
-    borderBottomWidth: 1
-  },
-  navBarTitle: {
-    fontSize: 20,
+  chatWrapper: {
+    height: '100%',
+    justifyContent: 'space-between',
   },
   conversationWrapper: {
-    backgroundColor: 'rgba(211,211,211, .5)',
-    height: 450,
-    padding: 20
+    backgroundColor: colors.grey,
+    marginTop: 69,
+    height: '75%',
+    flexWrap: 'wrap'
   },
   inputWrapper: {
-    height: 75
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    borderWidth: 1,
+    borderColor: colors.grey,
   },
   inputText: {
-    height: 60, borderColor: 'gray', borderWidth: 1,
-    margin: 5,
-    padding: 10
+    flex: 10,
+    paddingLeft: 10
   },
-  inputButton: {
-    padding: 10
-  },
-  ownMessage: {
-
-  },
-  otherMessage: {
-
+  sendWrapper: {
+    flex: 2,
+    justifyContent: 'center'
   },
   ownWrapper: {
     alignSelf: 'flex-end',

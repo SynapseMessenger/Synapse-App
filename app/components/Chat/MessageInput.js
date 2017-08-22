@@ -10,8 +10,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addMessageToSelf, sendMessage } from '../../actions/chatActions';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { Button, Icon } from 'react-native-elements';
 import styles from '../../styles/Chat';
+import colors from '../../utils/colors';
 
 class MessageInput extends React.Component {
   constructor(props){
@@ -39,23 +41,24 @@ class MessageInput extends React.Component {
   render() {
     return (
       <View style={styles.inputWrapper}>
-        <View className="col s10">
-          <TextInput
-            multiline={true}
-            numberOfLines={5}
-            style={styles.inputText}
-            className="materialize-textarea input-message"
-            value={this.state.message}
-            onChangeText={(text) => { this.setState({message: text}) } }
-          />
-        </View>
-        <View className="col s2">
-          <Button
-            title='Send'
-            style={styles.inputButton}
-            onPress={this.handleSend}
-          />
-        </View>
+        <TextInput
+          multiline={true}
+          numberOfLines={5}
+          style={styles.inputText}
+          className="materialize-textarea input-message"
+          value={this.state.message}
+          onChangeText={(text) => { this.setState({message: text}) } }
+        />
+        <TouchableHighlight onPress={this.handleSend} style={styles.sendWrapper}>
+          <View>
+            <Icon
+              size={40}
+              name='send'
+              type='font-awesome'
+              color={colors.blue}
+            />
+          </View>
+        </TouchableHighlight>
       </View>
     )
   }

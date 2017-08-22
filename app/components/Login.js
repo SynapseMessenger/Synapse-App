@@ -40,7 +40,7 @@ class Login extends React.Component {
     const { username, setUsername } = this.props;
     return (
       <View style={styles.wrapper}>
-        <View>
+        <View style={styles.inputWrapper}>
           <FormLabel>USERNAME</FormLabel>
           <FormInput
             style={styles.input}
@@ -50,14 +50,16 @@ class Login extends React.Component {
             shake={this.state.error ? true : false}
           />
         </View>
-        <Button
-          icon={{name: 'trending-flat'}}
-          onPress={ this.handleContinue.bind(this) }
-          title='CONTINUE'
-          iconRight
-          backgroundColor={'#1e88e5'}
-          borderRadius={5}
-        />
+        <View style={styles.buttonWrapper}>
+          <Button
+            icon={{name: 'trending-flat'}}
+            onPress={ this.handleContinue.bind(this) }
+            title='CONTINUE'
+            iconRight
+            backgroundColor={'#1e88e5'}
+            borderRadius={5}
+          />
+        </View>
         { this.state.redirect ? <Redirect to="/synapse/contacts" /> : null }
       </View>
     )

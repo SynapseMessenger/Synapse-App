@@ -10,6 +10,8 @@ import ChatClient from './app/components/ChatClient.js';
 import Contacts from './app/components/Contacts';
 import NavBar from './app/components/NavBar';
 
+console.disableYellowBox = true;
+
 const App = () => (
   <Provider store={store}>
     <NativeRouter>
