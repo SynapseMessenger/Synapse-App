@@ -11,13 +11,14 @@ import { connect } from 'react-redux';
 import Message from './Message';
 import { View, Text, ScrollView } from 'react-native';
 import styles from '../../styles/Chat';
+import AutoScroll from './AutoScroll';
 
 const Conversation = (props) => {
   const { messages, user } = props;
   if (messages && messages.length > 0) {
     return (
       <View style={styles.conversationWrapper}>
-        <ScrollView>
+        <AutoScroll style={styles.scrollView}>
           { messages.map((message) => {
             return (
               <Message
@@ -28,7 +29,7 @@ const Conversation = (props) => {
               />
             );
           })}
-        </ScrollView>
+        </AutoScroll>
       </View>
     )
   } else return null;

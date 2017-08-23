@@ -3,14 +3,15 @@ import colors from '../utils/colors';
 
 export default styles = StyleSheet.create({
   chatWrapper: {
+    paddingTop: 69,
     height: '100%',
     justifyContent: 'space-between',
   },
   conversationWrapper: {
-    backgroundColor: colors.grey,
-    marginTop: 69,
-    height: '75%',
-    flexWrap: 'wrap'
+    position: 'absolute',
+    alignSelf: 'center',
+    width: '100%',
+    height: 590
   },
   inputWrapper: {
     display: 'flex',
@@ -18,6 +19,7 @@ export default styles = StyleSheet.create({
     width: '100%',
     borderWidth: 1,
     borderColor: colors.grey,
+    backgroundColor: colors.white
   },
   inputText: {
     flex: 10,
@@ -30,8 +32,6 @@ export default styles = StyleSheet.create({
   ownWrapper: {
     alignSelf: 'flex-end',
     margin: 10,
-    borderColor: 'gray',
-    borderWidth: 1,
     padding: 7,
     borderRadius: 6,
     backgroundColor: 'rgba(128, 203, 196, 1)'
@@ -39,8 +39,6 @@ export default styles = StyleSheet.create({
   otherWrapper: {
     alignSelf: 'flex-start',
     margin: 10,
-    borderColor: 'gray',
-    borderWidth: 1,
     padding: 7,
     borderRadius: 6,
     backgroundColor: 'rgba(128, 222, 234, 1)'

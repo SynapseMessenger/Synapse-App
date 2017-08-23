@@ -15,7 +15,7 @@ import MessageInput from './MessageInput';
 import { bindActionCreators } from 'redux';
 import { updateNavbar } from '../../actions/navbarActions';
 
-import { View, Text } from 'react-native';
+import { View, Text, KeyboardAvoidingView } from 'react-native';
 import { Link } from 'react-router-native';
 
 import styles from '../../styles/Chat';
@@ -29,7 +29,7 @@ class Chat extends React.Component {
   render() {
     const { user, receiver } = this.props;
     return (
-      <View style={styles.chatWrapper}>
+      <KeyboardAvoidingView style={styles.chatWrapper} behavior={'padding'}>
         <View>
           <Conversation
             receiverId={receiver._id}
@@ -41,7 +41,7 @@ class Chat extends React.Component {
             receiverId={receiver._id}
           />
         </View>
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }
